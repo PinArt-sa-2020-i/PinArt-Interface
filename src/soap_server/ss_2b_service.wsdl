@@ -1,0 +1,46 @@
+<definitions name = "ss_2b"
+   targetNamespace = "http://www.examples.com/wsdl/MyService.wsdl"
+   xmlns = "http://schemas.xmlsoap.org/wsdl/"
+   xmlns:soap = "http://schemas.xmlsoap.org/wsdl/soap/"
+   xmlns:tns = "http://www.examples.com/wsdl/MyService.wsdl"
+   xmlns:xsd = "http://www.w3.org/2001/XMLSchema">
+
+   <message name = "getAllTagsRequest">
+      <part name = "name" type = "xsd:string"/>
+   </message>
+
+   <message name = "getAllTagsResponse">
+      <part name = "tags" type = "xsd:string"/>
+   </message>
+   
+   <portType name = "funtions">
+      <operation name = "getAllTags">
+         <input message = "tns:getAllTagsRequest"/>
+         <output message = "tns:getAllTagsResponse"/>
+      </operation>
+   </portType>
+
+   <binding name = "ss_2b_Binding" type = "tns:funtions">
+      <soap:binding style = "rpc" transport = "http://schemas.xmlsoap.org/soap/http"/>
+
+      <operation name = "getAllTags">
+         <soap:operation soapAction = "getAllTags"/>
+
+         <input>
+            <soap:body encodingStyle = "http://schemas.xmlsoap.org/soap/encoding/" namespace = "urn:examples:ss_2b" use = "encoded"/>
+         </input>
+         <output>
+            <soap:body encodingStyle = "http://schemas.xmlsoap.org/soap/encoding/" namespace = "urn:examples:ss_2b" use = "encoded"/>
+         </output>
+      </operation>
+      
+   </binding>
+
+   <service name = "ss_2b">
+      <documentation>WSDL File for MyService</documentation>
+      <port binding = "tns:ss_2b_Binding" name = "funtions">
+         <soap:address location = "http://localhost:6060/ss_2b" />
+      </port>
+   </service>
+
+</definitions>
