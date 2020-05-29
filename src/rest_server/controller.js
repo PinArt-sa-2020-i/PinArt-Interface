@@ -3,14 +3,16 @@ const SS_2A_CLIENT = require(`../soap_clients/ss_2a_client`);
 
 
 //Controller de la ruta
-function getExample(req, res){
+async function getAllGustos(req, res){
 
     //Rescatando parametro - en un get (en post es diferente)
-    let name = req.params.name;
+    let username = req.params.username;
 
     //Llamando a la funcion del cliente soap
-    SS_2A_CLIENT.requestClientExample(name, res);
-
+    let response = await SS_2A_CLIENT.getAllGustos(username);
+    
+    //Retornar resultado
+    res.send(response);
 }
 
-module.exports = {getExample}
+module.exports = {getAllGustos}

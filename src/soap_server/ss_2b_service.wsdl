@@ -5,26 +5,62 @@
    xmlns:tns = "http://www.examples.com/wsdl/MyService.wsdl"
    xmlns:xsd = "http://www.w3.org/2001/XMLSchema">
 
+
+   <!-- Get ALl Tags -->
    <message name = "getAllTagsRequest">
-      <part name = "name" type = "xsd:string"/>
    </message>
 
    <message name = "getAllTagsResponse">
-      <part name = "tags" type = "xsd:string"/>
+      <xsd:element name="images" maxOccurs="unbounded"/> 
    </message>
    
+
+   <!-- Get Images by tag-->
+   <message name = "getImagesByTagRequest">
+      <part name = "idTag" type = "xsd:string"/>
+   </message>
+
+   <message name = "getImagesByTagResponse">
+      <xsd:element name="images" maxOccurs="unbounded"/> 
+   </message>
+
+
+
    <portType name = "funtions">
       <operation name = "getAllTags">
          <input message = "tns:getAllTagsRequest"/>
          <output message = "tns:getAllTagsResponse"/>
       </operation>
+
+      <operation name = "getImagesByTag">
+         <input message = "tns:getImagesByTagRequest"/>
+         <output message = "tns:getImagesByTagResponse"/>
+      </operation>
    </portType>
+
+
+   
+   
+  
+
+   
 
    <binding name = "ss_2b_Binding" type = "tns:funtions">
       <soap:binding style = "rpc" transport = "http://schemas.xmlsoap.org/soap/http"/>
 
       <operation name = "getAllTags">
          <soap:operation soapAction = "getAllTags"/>
+
+         <input>
+            <soap:body encodingStyle = "http://schemas.xmlsoap.org/soap/encoding/" namespace = "urn:examples:ss_2b" use = "encoded"/>
+         </input>
+         <output>
+            <soap:body encodingStyle = "http://schemas.xmlsoap.org/soap/encoding/" namespace = "urn:examples:ss_2b" use = "encoded"/>
+         </output>
+      </operation>
+
+      <operation name = "getImagesByTag">
+         <soap:operation soapAction = "getImagesByTag"/>
 
          <input>
             <soap:body encodingStyle = "http://schemas.xmlsoap.org/soap/encoding/" namespace = "urn:examples:ss_2b" use = "encoded"/>

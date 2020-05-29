@@ -8,29 +8,28 @@ let url = `http://${serverData.ss_2a_url}:${serverData.ss_2a_port}/${serverData.
 
 
 //Consumiendo funcion ejemplo Soap
-function requestClientExample(name, res){
+async function getAllGustos(username){
     //Definiendo parametros
-    let args = {username: name};
+    let args = {username: username};
   
-    //Crea el cliente
-    soap.createClient(url, function(err, client) {
-        
-        //Llama la funcionalidad
-        client.getAllGustos(args, function(err, result) {
+    
+    const client = await soap.createClientAsync(url);
 
-            //Hacer algo con la respuesta
-            //Procesar, darle formato
-
-            //Respondiendo a la funcionalidad
-            res.send(result)
+    let getAllGustosSoap = (args) =>{
+        return new Promise(resolve => {
+            client.getAllGustos(args, (err, result) => { resolve(result)});
         });
-    })
+    }
+
+    let result= await getAllGustosSoap(args);
+
+    return result;
     
 }
 
 
 
 //Exportando las funcionalidades
-module.exports = { requestClientExample}
+module.exports = { getAllGustos}
 
 

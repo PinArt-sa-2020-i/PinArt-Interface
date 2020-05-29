@@ -6,7 +6,7 @@ const api = express.Router()
 const controller = require(`./controller`);
 
 //Servicio  Example
-api.get('/getExample/:name', controller.getExample);
+api.get('/getAllGustos/:username', controller.getAllGustos);
 
 
 //Proof
