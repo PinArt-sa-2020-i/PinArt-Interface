@@ -1,1 +1,1 @@
-# PinArt-x-Interface
+# PinArt-Interface
