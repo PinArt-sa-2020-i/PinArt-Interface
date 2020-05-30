@@ -3,12 +3,12 @@ const requests_ms = require('./requests_ms');
 async function getAllTags() {
     
     let response = await requests_ms.getAllTags();
-    let etiquetas = [];
+    let tag = [];
     
 
     if(response.status == 200){
         response.body.forEach(element => {
-            etiquetas.push(
+            tag.push(
                 {
                     id: element.id,
                     name: element.name,
@@ -18,7 +18,9 @@ async function getAllTags() {
         });
 
     }
-    return etiquetas;
+    return {
+        tag: tag
+    };
     
 }
 
@@ -29,15 +31,16 @@ async function getImagesByTag(args){
 
     let response = await requests_ms.getImagesByTag(idTag);
 
-    let urlImagenes = [];
+    let images = [];
 
     if(response.status == 200){    
         response.body.multimediaByTag.forEach(element => {
-            urlImagenes.push(element.url)
+            images.push(element.url)
         });
     }
-    
-    return urlImagenes;
+    return {
+        images: images
+    };
 
 }
 
