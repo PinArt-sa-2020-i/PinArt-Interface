@@ -25,22 +25,17 @@ async function getAllTags() {
 }
 
 async function getImagesByTag(args){
-    let idTag;
-    if(args.idTag.$value == undefined){idTag = args.idTag;}
-    else{idTag = args.idTag.$value;}
-
+    let idTag = args;
     let response = await requests_ms.getImagesByTag(idTag);
 
-    let images = [];
+    let url = [];
 
     if(response.status == 200){    
         response.body.multimediaByTag.forEach(element => {
-            images.push(element.url)
+            url.push(element.url)
         });
     }
-    return {
-        images: images
-    };
+    return {url: url};
 
 }
 
