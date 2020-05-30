@@ -6,8 +6,8 @@ const operations = require(`./operations`);
 let myService = {
     ss_2b: {
         funtions: {
-            getAllTags: operations.getAllTags,
-            getImagesByTag: operations.getImagesByTag
+            AllTags: operations.getAllTags,
+            ImagesByTag: operations.getImagesByTag
         }
     }
 };
