@@ -1,0 +1,15 @@
+FROM node:12.16.2
+
+# Create app directory
+WORKDIR /ss-interface-rest
+
+# Install app dependencies
+COPY package.json /ss-interface-rest
+COPY package-lock.json /ss-interface-rest
+RUN npm install
+
+# Bundle app source
+COPY . /ss-interface-rest
+
+EXPOSE  9000
+CMD [ "node", "./src/rest_server/index.js"]

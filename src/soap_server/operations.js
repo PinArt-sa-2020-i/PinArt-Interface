@@ -25,7 +25,11 @@ async function getAllTags() {
 }
 
 async function getImagesByTag(args){
+    
+    console.log(args);
+    
     let idTag = args;
+
     let response = await requests_ms.getImagesByTag(idTag);
 
     let url = [];
