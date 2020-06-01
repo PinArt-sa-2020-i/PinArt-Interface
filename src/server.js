@@ -16,8 +16,8 @@ module.exports = {
 
     //Data service of 2a
     ss_2a_url: process.env.SS_2A_URL || "localhost",
-    ss_2a_port: process.env.SS_2A_PORT || "8090",
-    ss_2a_action: process.env.SS_2A_ACTION || "ss_2a",
+    ss_2a_port: process.env.SS_2A_PORT || "6060",
+    ss_2a_action: process.env.SS_2A_ACTION || "ss_2b",
 
 
     //Data server rest
