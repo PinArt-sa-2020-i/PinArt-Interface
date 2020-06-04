@@ -15,7 +15,7 @@ module.exports = {
     profile_entryPoint: process.env.PROFILE_ENTRY || "api/",
 
     //Data service of 2a
-    ss_2a_url: process.env.SS_2A_URL || "127.0.0.1",
+    ss_2a_url: process.env.SS_2A_URL || "34.200.179.125",
     ss_2a_port: process.env.SS_2A_PORT || "3030",
     ss_2a_action: process.env.SS_2A_ACTION || "ss_2a",
 
