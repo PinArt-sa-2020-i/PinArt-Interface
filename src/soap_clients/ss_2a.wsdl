@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://www.examples.com/wsdl/MyService.wsdl"
+  xmlns:s="http://www.w3.org/2001/XMLSchema"
+  xmlns:tns="http://www.examples.com/wsdl/MyService.wsdl"
+  xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+  xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://www.examples.com/wsdl/MyService.wsdl">
+      <s:element name="getLikesRequest">
+        <s:sequence>
+            <s:element name = "idUser" type = "xsd:string"/>
+          </s:sequence>
+      </s:element>
+      <s:element name="getLikesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element maxOccurs="unbounded" name="likes"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+
+  <wsdl:message name="getLikesSoapIn">
+    <wsdl:part name="parameters" element="tns:getLikesRequest"/>
+  </wsdl:message>
+  <wsdl:message name="getLikesSoapOut">
+    <wsdl:part name="parameters" element="tns:getLikesResponse"/>
+  </wsdl:message>
+
+  <wsdl:portType name="ss_2a_Port">
+    <!-- The operation name must be the same as the one specified in the service object -->
+    <wsdl:operation name="getLikes">
+      <wsdl:input message="tns:getLikesSoapIn"/>
+      <wsdl:output message="tns:getLikesSoapOut"/>
+    </wsdl:operation>
+  </wsdl:portType>
+
+  <wsdl:binding name="ss_2a_Binding" type="tns:ss_2a_Port">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="getLikes">
+      <soap:operation soapAction="getLikes" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+
+  <wsdl:service name="ss_2a">
+    <wsdl:port name="functions" binding="tns:ss_2a_Binding">
+      <soap:address location="http://34.200.179.125:3030/ss_2a"/>
+    </wsdl:port>
+  </wsdl:service>
+
+</wsdl:definitions>
