@@ -10,9 +10,9 @@ async function getAllGustos(req, res){
 
     //Llamando a la funcion del cliente soap
     let response = await SS_2A_CLIENT.getAllGustos(username);
-    
+
     //Retornar resultado
     res.send(response);
 }
 
-module.exports = {getAllGustos}
+module.exports = {getAllGustos};

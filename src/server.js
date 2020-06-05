@@ -24,6 +24,6 @@ module.exports = {
     rest_server_port: process.env.REST_SERVER_PORT || "9000",
 
 
-    //Data server sopa
+    //Data server soap
     soap_server_port: process.env.SOAP_SERVER_PORT || "6060"
 };
