@@ -107,7 +107,7 @@
   <!-- SERVICE:  -->
   <wsdl:service name="ss_2b">
     <wsdl:port name="funtions" binding="tns:ss_2b_Binding">
-      <soap:address location="http://ec2-3-209-34-155.compute-1.amazonaws.com:6060/ss_2b"/>
+      <soap:address location="http://ec2-52-3-175-38.compute-1.amazonaws.com:6060/ss_2b"/>
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

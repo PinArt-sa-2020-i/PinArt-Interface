@@ -5,7 +5,6 @@ WORKDIR /ss-interface-rest
 
 # Install app dependencies
 COPY package.json /ss-interface-rest
-COPY package-lock.json /ss-interface-rest
 RUN npm install
 
 # Bundle app source

@@ -9,11 +9,6 @@ module.exports = {
     feed_port: process.env.FEED_PORT || '3001',
     feed_entryPoint: process.env.FEED_ENTRY || '',
 
-    //Data ms of ProfileAPI
-    profile_url: process.env.PROFILE_URL || "3.227.65.124",
-    profile_port: process.env.PROFILE_PORT || "8080",
-    profile_entryPoint: process.env.PROFILE_ENTRY || "api/",
-
     //Data service of 2a
     ss_2a_url: process.env.SS_2A_URL || "34.200.179.125",
     ss_2a_port: process.env.SS_2A_PORT || "3030",

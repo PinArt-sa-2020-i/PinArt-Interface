@@ -5,7 +5,6 @@ WORKDIR /ss-interface-soap
 
 # Install app dependencies
 COPY package.json /ss-interface-soap
-COPY package-lock.json /ss-interface-soap
 RUN npm install
 
 # Bundle app source
